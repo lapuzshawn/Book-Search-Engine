@@ -16,11 +16,14 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^7.0.2",
     "npm": "^9.6.7",
-    "apollo-server-express": "^2.15.0",
-    "graphql": "^15.4.0"
+    "apollo-server-express": "^3.6.2",
+    "@apollo/server": "^4.7.1",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6"
     
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  },
+  "homepage": "."
 }
