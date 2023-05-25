@@ -35,15 +35,15 @@ export const SAVE_BOOK = gql`
       _id
       username
       email
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
-      }
+      # bookCount
+      # savedBooks {
+      #   bookId
+      #   authors
+      #   description
+      #   title
+      #   image
+      #   link
+      # }
     }
   }
 `;
@@ -55,15 +55,15 @@ export const REMOVE_BOOK = gql`
       _id
       username
       email
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
-      }
+      # bookCount
+      # savedBooks {
+      #   bookId
+      #   authors
+      #   description
+      #   title
+      #   image
+      #   link
+      # }
     }
   }
 `;
