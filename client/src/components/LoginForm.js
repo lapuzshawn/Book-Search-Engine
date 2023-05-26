@@ -7,7 +7,7 @@ import Auth from '../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
+  const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const handleInputChange = (event) => {
@@ -24,17 +24,23 @@ const LoginForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+    setValidated(true); // Set validated state to true to show form feedback
 
     try {
-      const response = await loginUser(userFormData);
+      if (form.checkValidity()) { // Check form validity again before submitting
+        const response = await loginUser(userFormData);
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+
+        const { token, user } = await response.json();
+        console.log(user);
+        Auth.login(token);
+
+        setUserFormData({ email: '', password: '' });
+        setValidated(false); // Reset validated state to false after successful form submission
       }
-
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
