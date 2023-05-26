@@ -12,25 +12,45 @@ const typeDefs = gql`
     removeBook(bookId: ID!): User
   }
 
+  # type User {
+  #   _id: ID!
+  #   username: String!
+  #   email: String!
+  #   password: String!
+  #   bookCount: Int
+  #   savedBooks: [Book]
+  # }
+
   type User {
-    _id: ID!
-    username: String!
-    email: String!
-    bookCount: Int
-    savedBooks: [Book]
-  }
+  username: String!
+  email: String!
+  password: String!
+  savedBooks: [Book]
+  bookCount: Int
+}
+
+input CreateUserInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
 
   type Book {
-    bookId: ID
-    authors: [String]
-    description: String
-    title: String
-    image: String
-    link: String
+  authors: [String]
+  description: String!
+  bookId: String!
+  image: String
+  link: String
+  title: String!
   }
 
   type Auth {
-    token: String
+    token: ID!
     user: User
   }
 
