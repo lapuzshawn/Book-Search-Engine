@@ -17,10 +17,10 @@ import { useMutation, useQuery } from '@apollo/client';
 // TODO: use GET_ME query instead of `getMe()`
 
 const SavedBooks = () => {
-  // const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState({});
   const [removeBook] = useMutation(REMOVE_BOOK);
   const { loading, data } = useQuery(GET_ME); // Execute GET_ME query on load
-  const userData = data?.me || {}; // Save query data to userData variable
+  // const userData = data?.me || {}; // Save query data to userData variable
 
   // TODO: use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
