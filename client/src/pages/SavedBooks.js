@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Container,
   Card,
-  Button,
   Row,
   Col
 } from 'react-bootstrap';
 
-import { getMe, deleteBook } from '../utils/API';
-import Auth from '../utils/auth';
-import { removeBookId } from '../utils/localStorage';
-import { REMOVE_BOOK } from '../utils/mutations';
-import { GET_ME } from '../utils/queries';
-import { useMutation, useQuery } from '@apollo/client';
+// import { getMe, deleteBook } from '../utils/API';
+// import Auth from '../utils/auth';
+// import { removeBookId } from '../utils/localStorage';
+
+// import { REMOVE_BOOK } from '../utils/mutations';
+// import { GET_ME } from '../utils/queries';
+// import { useMutation, useQuery } from '@apollo/client';
 
 // TODO: use GET_ME query instead of `getMe()`
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
-  const [removeBook] = useMutation(REMOVE_BOOK);
-  const { loading, data } = useQuery(GET_ME); // Execute GET_ME query on load
+  const [userData] = useState({});
+  // const [removeBook] = useMutation(REMOVE_BOOK);
+  // const { loading, data } = useQuery(GET_ME); // Execute GET_ME query on load
   // const userData = data?.me || {}; // Save query data to userData variable
 
   // TODO: use this to determine if `useEffect()` hook needs to run again
